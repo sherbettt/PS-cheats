@@ -1,4 +1,4 @@
-### file should be kept in c:\Users\kiko0217\Documents\PowerShell\
+### file should be kept in c:\Users\<user_name>\Documents\PowerShell\
 
 ##oh-my-posh themes
 # to watch all themes: Get-PoshThemes
