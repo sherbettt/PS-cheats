@@ -1,8 +1,11 @@
 | Command            | Description                                         | Example                  |
 |--------------------|-----------------------------------------------------|-------------------------------------------|
 | **Get-Help**       | Отображает информацию о командах PowerShell         | `Get-Help Get-Process`   
-| **Get-Content**    | Чтение содержимого файла                            | `Get-Content file.txt`   
-|        -           |                         -                           | `Get-Content .\kubectl.exe.sha256`   
-| **Get-Command**    | Содержит список всех доступных команд в PowerShell  | `Get-Command`            
+| **Get-Command**    | Содержит список всех доступных команд в PowerShell  | `Get-Command`       
 | **Get-ChildItem**  | Извлекает файлы и папки из указанного расположения  | `Get-ChildItem C:\ `     
-| **Set-Location**   | Изменяет текущий рабочий каталог                    | `Set-Location D:\ `  
+| **Get-Content**    | Чтение содержимого файла                            | `Get-Content file.txt`   
+|--------------------|-----------------------------------------------------| `Get-Content .\kubectl.exe.sha256`   
+| **Out-File**       | Записывает выходные данные в файл                   | `Get-Process | Out-File .\file1.txt `
+| **Write-Output**   | Отправляет выходные данные в конвейер               | `Write-Output “Hello, PowerShell!” `
+| **Set-Location**   | Изменяет текущий рабочий каталог                    | `Set-Location D:\ `      
+|--------------------|-----------------------------------------------------|-------------------------------------------|
