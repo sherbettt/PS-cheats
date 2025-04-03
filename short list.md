@@ -1,7 +1,7 @@
-| Command        | Description                                       | Example                  |
-|----------------|---------------------------------------------------|--------------------------|
-| Get-Help       | Displays information about PowerShell commands    | `Get-Help Get-Process`   |
-| Get-Command    | Lists all available commands in PowerShell.       | `Get-Command`            |
-|     |        |          |
+| Command        | Description                                         | Example                  |
+|----------------|-----------------------------------------------------|--------------------------|
+| Get-Help       | Отображает информацию о командах PowerShell         | `Get-Help Get-Process`   |
+| Get-Command    | Содержит список всех доступных команд в PowerShell  | `Get-Command`            |
+| Get-ChildItem  | Извлекает файлы и папки из указанного расположения  | `Get-ChildItem C:\ `     |
 |     |        |          |
 |     |        |          |
