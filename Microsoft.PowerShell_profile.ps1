@@ -4,6 +4,8 @@
 # to watch all themes: Get-PoshThemes
 # to use theme in console:
 # & ([ScriptBlock]::Create((oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\jandedobbeleer.omp.json" --print) -join "`n"))
+## write 'pwsh' in alacrity terminal to use PS7
+
 
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_rainbow.omp.json" | Invoke-Expression
 #oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\paradox.omp.json" | Invoke-Expression
