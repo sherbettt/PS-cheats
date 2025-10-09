@@ -19,3 +19,5 @@
 
 **Set-Location**  Изменяет текущий рабочий каталог
 <br/> `Set-Location D:\ `
+
+Подробнее читай в https://github.com/sherbettt/powershell-cmdlet-cheatsheet
