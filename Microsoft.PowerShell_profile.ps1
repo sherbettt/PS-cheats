@@ -42,7 +42,29 @@ function wupall {
 }
 
 # NET
-#function myip { (Invoke-WebRequest -Uri "https://2ip.ru").Content }  # Внешний IP
+function extip1 {
+    $ip = (Invoke-WebRequest -Uri "https://api.ipify.org").Content.Trim()
+    Write-Host "Внешний IP: " -NoNewline
+    Write-Host $ip -ForegroundColor Green
+}
+
+function extip2 {
+    $ip = (Invoke-WebRequest -Uri "https://api.ipify.org").Content.Trim()
+    Write-Host "Внешний IP: " -NoNewline
+    Write-Host $ip -ForegroundColor Yellow
+    
+    # Дополнительная информация (если нужно)
+    try {
+        $info = Invoke-RestMethod -Uri "https://ipinfo.io/$ip/json" -ErrorAction Stop
+        Write-Host "Провайдер: $($info.org)" -ForegroundColor Cyan
+        Write-Host "Город: $($info.city), $($info.region), $($info.country), $($info.country_name)" -ForegroundColor Cyan
+		Write-Host "Тайм зона: $($info.timezone)" -ForegroundColor Green
+    }
+    catch {
+        Write-Warning "Не удалось получить дополнительную информацию"
+    }
+}
+
 function ports { netstat -ano | Select-String "LISTEN" }  # Слушающие порты
 
 # System info
@@ -54,5 +76,3 @@ function docs { cd ~\Documents }
 function downloads { cd j:\Downloads\ }
 function desktop { cd ~\Desktop }
 function proj { cd ~\projects } 
-
-
