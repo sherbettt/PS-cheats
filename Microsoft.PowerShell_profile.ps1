@@ -49,3 +49,10 @@ function ports { netstat -ano | Select-String "LISTEN" }  # Слушающие �
 function sysinfo { Get-ComputerInfo }  # Информация о системе
 function pslist { Get-Process | Sort-Object CPU -Descending }  # Процессы по CPU
 
+# navigation
+function docs { cd ~\Documents }
+function downloads { cd j:\Downloads\ }
+function desktop { cd ~\Desktop }
+function proj { cd ~\projects } 
+
+
