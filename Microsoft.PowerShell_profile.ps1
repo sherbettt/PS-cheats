@@ -19,4 +19,6 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_rainbow.omp.j
 ## Alias
 New-Alias -Name gh -Value Get-Help
 function ll {ls -Hidden && ls}
+function envn {$env:Path -split ';'}
 function wupall {winget upgrade --all --include-unknown}
+
