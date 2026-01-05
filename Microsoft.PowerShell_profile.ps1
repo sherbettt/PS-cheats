@@ -5,7 +5,7 @@
 # to use theme in console:
 # & ([ScriptBlock]::Create((oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\jandedobbeleer.omp.json" --print) -join "`n"))
 
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_rainbow.omp.json" | Invoke-Expression
+#oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_rainbow.omp.json" | Invoke-Expression
 #oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\paradox.omp.json" | Invoke-Expression
 #oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\night-owl.omp.json" | Invoke-Expression
 #oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\jandedobbeleer.omp.json" | Invoke-Expression
@@ -16,9 +16,36 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_rainbow.omp.j
 
 ## write 'pwsh' in alacrity terminal to use PS7
 
-## Alias
+## User Alias
 New-Alias -Name gh -Value Get-Help
-function ll {ls -Hidden && ls}
+
+function ll {
+    Get-ChildItem -Force | Format-Table -AutoSize
+}
+
 function envn {$env:Path -split ';'}
-function wupall {winget upgrade --all --include-unknown}
+
+function envn2 {
+    $paths = $env:Path.Split(';', [System.StringSplitOptions]::RemoveEmptyEntries)
+    for ($i = 0; $i -lt $paths.Count; $i++) {
+        if (Test-Path $paths[$i]) {
+            Write-Host "$($i+1). $($paths[$i])" -ForegroundColor Green
+        } else {
+            Write-Host "$($i+1). $($paths[$i])" -ForegroundColor Red
+        }
+    }
+}
+
+function wupall {
+    winget upgrade --all --include-unknown
+    Write-Host "The update is complete!" -ForegroundColor Green
+}
+
+# NET
+#function myip { (Invoke-WebRequest -Uri "https://2ip.ru").Content }  # Внешний IP
+function ports { netstat -ano | Select-String "LISTEN" }  # Слушающие порты
+
+# System info
+function sysinfo { Get-ComputerInfo }  # Информация о системе
+function pslist { Get-Process | Sort-Object CPU -Descending }  # Процессы по CPU
 
